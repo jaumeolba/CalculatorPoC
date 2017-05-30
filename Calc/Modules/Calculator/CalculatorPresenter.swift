@@ -13,7 +13,9 @@ final class CalculatorPresenter: Presenter {
     
     internal var currentDisplayValue: String = ""
 
-    
+    func resultOfOperation(result: Float) {
+        view.updateDisplay(with: String.init(result))
+    }
 }
 
 
@@ -83,7 +85,8 @@ extension CalculatorPresenter: KeyboardDelegate {
             }
             break
         case .equals:
-            break
+            interactor.calculateResult(currentDisplayValue)
+            return
         }
         
         view.updateDisplay(with: currentDisplayValue)
