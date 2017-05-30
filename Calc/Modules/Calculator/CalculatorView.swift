@@ -11,9 +11,7 @@ import Viperit
 
 //MARK: - Public Interface Protocol
 protocol CalculatorViewInterface {
-    func appendToDisplay(_ value: String)
-    func replaceLastCharacter(with value: String)
-    func getCurrentDisplayValue() -> String?
+    func updateDisplay(with value: String?)
 }
 
 //MARK: Calculator View
@@ -26,6 +24,7 @@ final class CalculatorView: UserInterface {
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboard.delegate = presenter
+        displayView.isEnabled = false
     }
     
 }
@@ -33,22 +32,8 @@ final class CalculatorView: UserInterface {
 //MARK: - Public interface
 extension CalculatorView: CalculatorViewInterface {
     
-    func appendToDisplay(_ value: String) {
-        displayView.text = displayView.text?.appending(value)
-    }
-    
-    func replaceLastCharacter(with value: String) {
-        guard let diplaytext = displayView.text else {
-            return
-        }
-        
-        let lastIndex = diplaytext.endIndex
-        
-        displayView.text = diplaytext.substring(to: lastIndex) + value
-    }
-    
-    func getCurrentDisplayValue() -> String? {
-        return displayView.text
+    func updateDisplay(with value: String?) {
+        displayView.text = value
     }
 }
 
