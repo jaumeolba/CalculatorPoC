@@ -12,6 +12,8 @@ import Viperit
 //MARK: - Public Interface Protocol
 protocol CalculatorViewInterface {
     func appendToDisplay(_ value: String)
+    func replaceLastCharacter(with value: String)
+    func getCurrentDisplayValue() -> String?
 }
 
 //MARK: Calculator View
@@ -33,6 +35,20 @@ extension CalculatorView: CalculatorViewInterface {
     
     func appendToDisplay(_ value: String) {
         displayView.text = displayView.text?.appending(value)
+    }
+    
+    func replaceLastCharacter(with value: String) {
+        guard let diplaytext = displayView.text else {
+            return
+        }
+        
+        let lastIndex = diplaytext.endIndex
+        
+        displayView.text = diplaytext.substring(to: lastIndex) + value
+    }
+    
+    func getCurrentDisplayValue() -> String? {
+        return displayView.text
     }
 }
 

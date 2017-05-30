@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -45,7 +45,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number1Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="g7W-ir-Bgd"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="mV4-bd-f5w"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLd-oE-JEL">
@@ -55,7 +55,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number4Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="TzF-sm-lJN"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="k2N-wJ-q7K"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8x-TQ-ATX">
@@ -65,7 +65,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number7Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="Ayy-TD-JOp"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="vBO-uD-k2F"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6v-U1-cyh">
@@ -87,7 +87,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number2Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="afJ-WF-qiF"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="hTM-4g-gmM"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-nl-LBI">
@@ -97,7 +97,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number5Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="7jw-E8-E7O"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="Uxt-wv-YGJ"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vAW-xA-5y7">
@@ -107,7 +107,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number8Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="2WL-Hc-5W1"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="eVX-R6-u70"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="etk-y1-XJd">
@@ -117,7 +117,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number0Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="hLA-Jq-Szu"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="IjA-Ne-RWj"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -132,7 +132,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number3Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="xL5-lY-lBc"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="ecQ-dS-9z3"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARz-eC-IOU">
@@ -142,7 +142,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number6Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="6qR-bW-xli"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="q8c-mD-eHs"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rer-Wz-3Ps">
@@ -152,7 +152,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="number9Clicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="4DB-B4-lGW"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="vGD-Nt-BbL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKL-yZ-Lqq">
@@ -162,7 +162,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="decimalClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="Qv4-4p-JgL"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="TDs-y4-91u"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -177,7 +177,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="additionClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="PyP-Ue-LuS"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="ar3-um-tz1"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ld-0B-Y9G">
@@ -187,7 +187,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="substractionClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="Bdm-AS-vuU"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="nJH-Zm-57Y"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KS2-wv-t92">
@@ -197,7 +197,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="equalsClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="SSm-my-9yt"/>
+                                                            <action selector="keyClicked:" destination="1QF-tx-HlT" eventType="touchUpInside" id="HVD-xm-4SW"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

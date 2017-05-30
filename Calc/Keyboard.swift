@@ -8,11 +8,43 @@
 
 import UIKit
 
+enum KeyboardKey: String {
+    case number1 = "1"
+    case number2 = "2"
+    case number3 = "3"
+    case number4 = "4"
+    case number5 = "5"
+    case number6 = "6"
+    case number7 = "7"
+    case number8 = "8"
+    case number9 = "9"
+    case number0 = "0"
+    case addition = "+"
+    case substraction = "-"
+    case decimal = "."
+    case equals = "="
+    
+    func isNumber() -> Bool {
+        return self == .number0 ||
+        self == .number1 ||
+        self == .number2 ||
+        self == .number3 ||
+        self == .number4 ||
+        self == .number5 ||
+        self == .number6 ||
+        self == .number7 ||
+        self == .number8 ||
+        self == .number9
+    }
+    
+    func isOperand() -> Bool {
+        return self == .addition ||
+        self == .substraction
+    }
+}
+
 protocol KeyboardDelegate {
-    func numberClicked(_ number: Int)
-    func decimalClicked()
-    func operationClicked(operation: Operation)
-    func equalsClicked()
+    func keyClicked(key: KeyboardKey)
 }
 
 protocol Operation {
@@ -42,59 +74,10 @@ class Keyboard: UIView {
     
     var delegate: KeyboardDelegate?
     
-    @IBAction func number1Clicked(_ sender: Any) {
-        delegate?.numberClicked(1)
-    }
-    
-    @IBAction func number2Clicked(_ sender: Any) {
-        delegate?.numberClicked(2)
-    }
-    
-    @IBAction func number3Clicked(_ sender: Any) {
-        delegate?.numberClicked(3)
-    }
-    
-    @IBAction func number4Clicked(_ sender: Any) {
-        delegate?.numberClicked(4)
-    }
-    
-    @IBAction func number5Clicked(_ sender: Any) {
-        delegate?.numberClicked(5)
-    }
-    
-    @IBAction func number6Clicked(_ sender: Any) {
-        delegate?.numberClicked(6)
-    }
-    
-    @IBAction func number7Clicked(_ sender: Any) {
-        delegate?.numberClicked(7)
-    }
-    
-    @IBAction func number8Clicked(_ sender: Any) {
-        delegate?.numberClicked(8)
-    }
-    
-    @IBAction func number9Clicked(_ sender: Any) {
-        delegate?.numberClicked(9)
-    }
-    
-    @IBAction func number0Clicked(_ sender: Any) {
-        delegate?.numberClicked(0)
-    }
-    
-    @IBAction func decimalClicked(_ sender: Any) {
-        delegate?.decimalClicked()
-    }
-    
-    @IBAction func additionClicked(_ sender: Any) {
-        delegate?.operationClicked(operation: Addition())
-    }
-    
-    @IBAction func substractionClicked(_ sender: Any) {
-        delegate?.operationClicked(operation: Substraction())
-    }
-    
-    @IBAction func equalsClicked(_ sender: Any) {
-        delegate?.equalsClicked()
+    @IBAction func keyClicked(_ sender: Any) {
+        guard let buttonText = (sender as? UIButton)?.titleLabel?.text,  let keyboardKey = KeyboardKey.init(rawValue: buttonText) else {
+            return
+        }
+        delegate?.keyClicked(key: keyboardKey)
     }
 }

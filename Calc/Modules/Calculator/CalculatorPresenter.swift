@@ -31,20 +31,45 @@ private extension CalculatorPresenter {
 }
 
 extension CalculatorPresenter: KeyboardDelegate {
-    func numberClicked(_ number: Int) {
-        
-        view.appendToDisplay(String.init(format: "%d", number))
-    }
-    
-    func decimalClicked() {
-        view.appendToDisplay(".")
-    }
-    
-    func operationClicked(operation: Operation) {
-        view.appendToDisplay(operation.symbol)
-    }
-    
-    func equalsClicked() {
-        equalsPressed()
+
+    func keyClicked(key: KeyboardKey) {
+        switch key {
+        case .decimal:
+            guard let currentDisplayValue = view.getCurrentDisplayValue() else {
+                return
+            }
+            
+            
+            break
+        case .addition:
+            guard let currentDisplayValue =  view.getCurrentDisplayValue(), let lastCharacter = currentDisplayValue.characters.last, let lastChar = String(.init(lastCharacter)), let lastCharacterKey = KeyboardKey(rawValue: lastChar) else {
+                return
+            }
+            if lastCharacterKey.isNumber() {
+                view.appendToDisplay(key.rawValue)
+            } else if lastCharacterKey.isOperand(), lastCharacterKey == .decimal {
+                view.replaceLastCharacter(with: key.rawValue)
+            }
+            break
+        case .substraction:
+            guard let currentDisplayValue =  view.getCurrentDisplayValue() else {
+                view.appendToDisplay(key.rawValue)
+                return
+            }
+            guard let lastCharacter = currentDisplayValue.characters.last, let lastChar = String(.init(lastCharacter)), let lastCharacterKey = KeyboardKey(rawValue: lastChar) else {
+                return
+            }
+            if lastCharacterKey.isNumber() {
+                view.appendToDisplay(key.rawValue)
+            } else if lastCharacterKey.isOperand(), lastCharacterKey == .decimal {
+                view.replaceLastCharacter(with: key.rawValue)
+            }
+            break
+        case .equals:
+            break
+        case .number0, .number1, .number2, .number3, .number4, .number5, .number6, .number7, .number8, .number9:
+            view.appendToDisplay(key.rawValue)
+            break
+        }
     }
 }
