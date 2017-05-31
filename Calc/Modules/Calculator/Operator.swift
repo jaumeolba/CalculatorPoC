@@ -7,3 +7,19 @@
 //
 
 import Foundation
+
+protocol Operator {
+    func calculate(firstOperand: Float, secondOperand: Float) -> Float
+}
+
+class AdditionOperator: Operator {
+    func calculate(firstOperand: Float, secondOperand: Float) -> Float{
+            return firstOperand + secondOperand
+    }
+}
+
+class SubstractionOperator: Operator {
+    func calculate(firstOperand: Float, secondOperand: Float) -> Float{
+        return firstOperand - secondOperand
+    }
+}

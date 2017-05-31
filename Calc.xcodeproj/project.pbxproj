@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05614C7D1EDEA08500A9A282 /* CalcElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05614C7C1EDEA08500A9A282 /* CalcElement.swift */; };
+		05614C811EDEC7BA00A9A282 /* Operator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05614C801EDEC7BA00A9A282 /* Operator.swift */; };
 		0592BD941EDC4B6E000DE355 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0592BD931EDC4B6E000DE355 /* AppDelegate.swift */; };
 		0592BD991EDC4B6E000DE355 /* Calculator.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0592BD971EDC4B6E000DE355 /* Calculator.storyboard */; };
 		0592BD9B1EDC4B6E000DE355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0592BD9A1EDC4B6E000DE355 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05614C7C1EDEA08500A9A282 /* CalcElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcElement.swift; sourceTree = "<group>"; };
+		05614C801EDEC7BA00A9A282 /* Operator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operator.swift; sourceTree = "<group>"; };
 		0592BD901EDC4B6E000DE355 /* Calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0592BD931EDC4B6E000DE355 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0592BD981EDC4B6E000DE355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Calculator.storyboard; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 				0592BDD91EDC74FB000DE355 /* CalculatorPresenter.swift */,
 				0592BDDA1EDC74FB000DE355 /* CalculatorRouter.swift */,
 				0592BDDB1EDC74FB000DE355 /* CalculatorView.swift */,
+				05614C7C1EDEA08500A9A282 /* CalcElement.swift */,
+				05614C801EDEC7BA00A9A282 /* Operator.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -335,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8EC39B871C33E9D83643DE7E /* [CP] Copy Pods Resources */ = {
@@ -381,6 +387,8 @@
 				0592BDDE1EDC74FB000DE355 /* CalculatorInteractor.swift in Sources */,
 				0592BD941EDC4B6E000DE355 /* AppDelegate.swift in Sources */,
 				0592BDE31EDC7794000DE355 /* AppModules.swift in Sources */,
+				05614C7D1EDEA08500A9A282 /* CalcElement.swift in Sources */,
+				05614C811EDEC7BA00A9A282 /* Operator.swift in Sources */,
 				0592BDE11EDC74FB000DE355 /* CalculatorView.swift in Sources */,
 				0592BDDF1EDC74FB000DE355 /* CalculatorPresenter.swift in Sources */,
 			);

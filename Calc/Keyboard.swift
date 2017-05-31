@@ -9,6 +9,7 @@
 import UIKit
 
 enum KeyboardKey: String {
+    
     case number1 = "1"
     case number2 = "2"
     case number3 = "3"
@@ -23,6 +24,7 @@ enum KeyboardKey: String {
     case substraction = "-"
     case decimal = "."
     case equals = "="
+    case clear = "CLEAR"
     
     func isNumber() -> Bool {
         return self == .number0 ||
@@ -37,9 +39,42 @@ enum KeyboardKey: String {
         self == .number9
     }
     
-    func isOperand() -> Bool {
+    func isOperator() -> Bool {
         return self == .addition ||
         self == .substraction
+    }
+    
+    func calcElement() -> CalcElement? {
+        if isNumber() {
+            return NumberElement(key: self)
+        } else if isOperator() {
+            return OperatorElement(key: self)
+        } else if self == .decimal {
+            return DecimalElement(key: self)
+        }
+        return nil
+    }
+    
+    func getOperator() -> Operator? {
+        guard self.isOperator() else {
+            return nil
+        }
+        
+        switch self {
+        case .addition:
+            return AdditionOperator()
+        case .substraction:
+            return SubstractionOperator()
+        default:
+            return nil
+        }
+    }
+    
+    static func operandsCharacterSet() -> CharacterSet {
+        var characterSet = CharacterSet()
+        characterSet.insert(charactersIn: KeyboardKey.addition.rawValue)
+        characterSet.insert(charactersIn: KeyboardKey.substraction.rawValue)
+        return characterSet
     }
 }
 

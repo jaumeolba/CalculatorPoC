@@ -12,6 +12,7 @@ import Viperit
 //MARK: - Public Interface Protocol
 protocol CalculatorViewInterface {
     func updateDisplay(with value: String?)
+    func showError(error: String)
 }
 
 //MARK: Calculator View
@@ -31,6 +32,11 @@ final class CalculatorView: UserInterface {
 
 //MARK: - Public interface
 extension CalculatorView: CalculatorViewInterface {
+    func showError(error: String) {
+        //TODO: Show alert error
+        UIAlertController(title: nil, message: error, preferredStyle: .alert).show(self, sender: nil)
+    }
+
     
     func updateDisplay(with value: String?) {
         displayView.text = value

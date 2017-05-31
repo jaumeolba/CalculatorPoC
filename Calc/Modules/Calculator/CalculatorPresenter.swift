@@ -13,8 +13,13 @@ final class CalculatorPresenter: Presenter {
     
     internal var currentDisplayValue: String = ""
 
-    func resultOfOperation(result: Float) {
-        view.updateDisplay(with: String.init(result))
+    func resultOfOperation(result: Float?) {
+        guard let result = result else {
+            view.showError(error: "Cannot resolve the operation")
+            return
+        }
+        currentDisplayValue = String.init(result)
+        view.updateDisplay(with: currentDisplayValue)
     }
 }
 
@@ -38,57 +43,15 @@ extension CalculatorPresenter: KeyboardDelegate {
         currentDisplayValue.append(value)
     }
     
-    internal func replaceLastCharacter(with value: String) {
-        let lastIndex = currentDisplayValue.index(before: currentDisplayValue.endIndex)
-        currentDisplayValue = currentDisplayValue.substring(to: lastIndex) + value
-    }
-    
-    internal func getLastCharacter() -> KeyboardKey? {
-        guard currentDisplayValue.characters.count > 0, let lastCharacter = currentDisplayValue.characters.last, let lastChar = String(.init(lastCharacter)), let lastCharacterKey = KeyboardKey(rawValue: lastChar) else {
-            return nil
-        }
-        return lastCharacterKey
-    }
-    
-    internal func getLastNumberBlock() -> String? {
-        
-        var characterSet = CharacterSet.init()
-        characterSet.insert(charactersIn: KeyboardKey.addition.rawValue)
-        characterSet.insert(charactersIn: KeyboardKey.substraction.rawValue)
-        let components = currentDisplayValue.components(separatedBy: characterSet)
-        guard components.count > 0 else {
-            return nil
-        }
-        return components[components.count - 1]
-    }
-
     func keyClicked(key: KeyboardKey) {
-        switch key {
-        case .number0, .number1, .number2, .number3, .number4, .number5, .number6, .number7, .number8, .number9:
-            append(key.rawValue)
-            break
-        case .decimal:
-            if let lastCharacter = getLastCharacter(), !lastCharacter.isOperand() , let lastNumberBlock = getLastNumberBlock(), !lastNumberBlock.contains(key.rawValue) {
-                append(key.rawValue)
-            }
-            break
-        case .addition, .substraction:
-            if let lastCharacterKey = getLastCharacter() {
-                if lastCharacterKey.isNumber() {
-                    append(key.rawValue)
-                } else if lastCharacterKey.isOperand() || lastCharacterKey == .decimal {
-                    replaceLastCharacter(with: key.rawValue)
-                }
-            } else {
-                //First element
-                append(key.rawValue)
-            }
-            break
-        case .equals:
+        if let calcElement = key.calcElement() {
+            currentDisplayValue = calcElement.insertInDisplay(displayValue: currentDisplayValue)
+            view.updateDisplay(with: currentDisplayValue)
+        } else if key == .equals {
             interactor.calculateResult(currentDisplayValue)
-            return
+        } else if key == .clear {
+            currentDisplayValue = ""
+            view.updateDisplay(with: currentDisplayValue)
         }
-        
-        view.updateDisplay(with: currentDisplayValue)
     }
 }
