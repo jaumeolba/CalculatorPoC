@@ -9,18 +9,35 @@
 import Foundation
 import Viperit
 
-final class CalculatorInteractor: Interactor {
+class CalculatorInteractor: Interactor {
     
     func calculateResult(_ display: String) {
+        presenter.resultOfOperation(result: calculate(display))
+    }
+    
+    func calculateFinalResult(_ display: String) {
+        presenter.finalResultOfOperation(result: calculate(display))
+    }
+    
+    func calculate(_ display: String) -> Float? {
+        let result = calculateResult(value: display, characterSet: KeyboardKey.operandsCharacterSet())
+        return result
         
-        var currentDisplay = "0" + display
-        
+    }
+    
+    func calculateResult(value: String, characterSet: CharacterSet) -> Float? {
         var result: Float?
+        var currentDisplay = "0" + value
+        
+        if let lastValueOp = CalcUtils.getLastCharacter(currentDisplay)?.isOperator(), lastValueOp {
+            
+            currentDisplay = currentDisplay.substring(to: currentDisplay.index(before: currentDisplay.endIndex))
+        }
         
         var operands: Array = currentDisplay.components(separatedBy: KeyboardKey.operandsCharacterSet())
         
         guard operands.count > 0 else {
-            return
+            return nil
         }
         
         while operands.count > 0 {
@@ -38,24 +55,24 @@ final class CalculatorInteractor: Interactor {
                             currentDisplay = currentDisplay.substring(from: index.upperBound)
                             operands.remove(at: 0)
                         } else {
-                            //Throw exception: Unknown operator
+                            //Unknown operator
                             result = nil
                             break
                         }
                     }
                 } else {
-                    //Check what happens here
+                    //Cannot find second operand? Something went wrong in the process
                     result = nil
                     break
                 }
             } else {
-                //Throw exception: Cannot convert String to Float
+                //Cannot convert String to Float
                 result = nil
                 break
             }
         }
         
-        presenter.resultOfOperation(result: result)
+        return result
     }
 }
 

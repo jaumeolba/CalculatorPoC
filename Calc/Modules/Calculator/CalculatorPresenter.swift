@@ -9,7 +9,7 @@
 import Foundation
 import Viperit
 
-final class CalculatorPresenter: Presenter {
+class CalculatorPresenter: Presenter {
     
     internal var currentDisplayValue: String = ""
 
@@ -18,8 +18,18 @@ final class CalculatorPresenter: Presenter {
             view.showError(error: "Cannot resolve the operation")
             return
         }
+        view.updateResultDisplay(with: String.init(result))
+    }
+    
+    func finalResultOfOperation(result: Float?) {
+        guard let result = result else {
+            view.showError(error: "Cannot resolve the operation")
+            return
+        }
+        
         currentDisplayValue = String.init(result)
-        view.updateDisplay(with: currentDisplayValue)
+        view.updateDisplay(with: String.init(result))
+        view.updateResultDisplay(with: "")
     }
 }
 
@@ -47,8 +57,9 @@ extension CalculatorPresenter: KeyboardDelegate {
         if let calcElement = key.calcElement() {
             currentDisplayValue = calcElement.insertInDisplay(displayValue: currentDisplayValue)
             view.updateDisplay(with: currentDisplayValue)
-        } else if key == .equals {
             interactor.calculateResult(currentDisplayValue)
+        } else if key == .equals {
+            interactor.calculateFinalResult(currentDisplayValue)
         } else if key == .clear {
             currentDisplayValue = ""
             view.updateDisplay(with: currentDisplayValue)

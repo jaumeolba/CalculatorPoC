@@ -9,7 +9,7 @@
 import Foundation
 import Viperit
 
-final class CalculatorRouter: Router {
+class CalculatorRouter: Router {
 }
 
 // MARK: - VIPER COMPONENTS API (Auto-generated code)

@@ -9,6 +9,6 @@
 import Foundation
 import Viperit
 
-final class CalculatorDisplayData: DisplayData {
+class CalculatorDisplayData: DisplayData {
 
 }

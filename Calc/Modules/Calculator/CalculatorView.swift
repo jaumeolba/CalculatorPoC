@@ -12,20 +12,23 @@ import Viperit
 //MARK: - Public Interface Protocol
 protocol CalculatorViewInterface {
     func updateDisplay(with value: String?)
+    func updateResultDisplay(with value: String?)
     func showError(error: String)
 }
 
 //MARK: Calculator View
-final class CalculatorView: UserInterface {
+class CalculatorView: UserInterface {
     
     @IBOutlet weak var displayView: UITextField!
     
+    @IBOutlet weak var resultView: UITextField!
     @IBOutlet weak var keyboard: Keyboard!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboard.delegate = presenter
         displayView.isEnabled = false
+        resultView.isEnabled = false
     }
     
 }
@@ -40,6 +43,10 @@ extension CalculatorView: CalculatorViewInterface {
     
     func updateDisplay(with value: String?) {
         displayView.text = value
+    }
+    
+    func updateResultDisplay(with value: String?) {
+        resultView.text = value
     }
 }
 
